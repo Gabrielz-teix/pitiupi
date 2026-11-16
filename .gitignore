@@ -10,9 +10,6 @@
 /plugins/mpchat/out/
 /plugins/mpchat/dist/
 /.pitiupi/
-/plugins/forca/build/
-/plugins/forca/dist/
-/plugins/forca/nbproject/private/
 /plugins/batata/build/
 /plugins/batata/dist/
 /plugins/batata/nbproject/private/

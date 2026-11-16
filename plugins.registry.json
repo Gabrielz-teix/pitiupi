@@ -22,13 +22,6 @@
       "menuCategory": "Social"
     },
     {
-      "id": "forca",
-      "dir": "plugins/forca",
-      "build": "ant",
-      "jar": "dist/pitiupi.forca.jar",
-      "menuCategory": "Jogos"
-    },
-    {
       "id": "batata",
       "dir": "plugins/batata",
       "build": "ant",
