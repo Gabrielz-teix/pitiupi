@@ -46,4 +46,5 @@ Get-CimInstance Win32_Process -Filter "Name = 'java.exe' OR Name = 'javaw.exe'" 
     ForEach-Object { Stop-Process -Id $_.ProcessId -Force -ErrorAction SilentlyContinue }
 
 $env:PITIUPI_HOME = $PitiupiHome
-Start-Process -FilePath $javaExe -ArgumentList @('-jar', $Jar)
+# PowerShell 5.1 junta ArgumentList sem aspas: caminho com espaço quebraria o -jar.
+Start-Process -FilePath $javaExe -ArgumentList ('-jar "{0}"' -f $Jar)
