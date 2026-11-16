@@ -64,11 +64,9 @@ public class ConnectionManager {
 
         pitiupiIdentifier = "Pitiupi.Alice.2026";
 
-        String bindError = openSockets();
-        if (bindError != null) {
-            System.err.println(bindError);
-        }
-
+        // Os serviços vêm antes dos sockets: assim que o socket UDP abre, já pode chegar
+        // um heartbeat de outra pessoa, e receiveHeartbeat usa o presenceService. Se ele
+        // ainda fosse null, a thread que recebe UDP morria com NullPointerException.
         heartbeatManager = new HeartbeatManager(this);
         peerActionBroker = new PeerActionBroker();
         inviteInboxService = new InviteInboxService(heartbeatManager);
@@ -78,6 +76,11 @@ public class ConnectionManager {
         presenceService = new PresenceService(heartbeatManager, inviteInboxService, peerActivityInbox);
         inviteInboxService.setOnNotificationsChanged(heartbeatManager::notifyPeerListeners);
         peerActivityInbox.setOnChanged(heartbeatManager::notifyPeerListeners);
+
+        String bindError = openSockets();
+        if (bindError != null) {
+            System.err.println(bindError);
+        }
         heartbeatManager.start();
 
         Runtime.getRuntime().addShutdownHook(new Thread(this::shutdownGracefully, "pitiupi-goodbye"));

@@ -27,6 +27,20 @@
       "build": "ant",
       "jar": "dist/pitiupi.forca.jar",
       "menuCategory": "Jogos"
+    },
+    {
+      "id": "batata",
+      "dir": "plugins/batata",
+      "build": "ant",
+      "jar": "dist/pitiupi.batata.jar",
+      "menuCategory": "Jogos"
+    },
+    {
+      "id": "pong",
+      "dir": "plugins/pong",
+      "build": "ant",
+      "jar": "dist/pitiupi.pong.jar",
+      "menuCategory": "Jogos"
     }
   ]
 }

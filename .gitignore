@@ -13,3 +13,9 @@
 /plugins/forca/build/
 /plugins/forca/dist/
 /plugins/forca/nbproject/private/
+/plugins/batata/build/
+/plugins/batata/dist/
+/plugins/batata/nbproject/private/
+/plugins/pong/build/
+/plugins/pong/dist/
+/plugins/pong/nbproject/private/
