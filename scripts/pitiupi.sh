@@ -238,7 +238,7 @@ link_plugins_from_selection() {
   local mode="${1:-link}"
   local id dir jar_rel link_name src_abs
   mkdir -p "${PLUGINS_DIR}"
-  rm -f "${PLUGINS_DIR}/"*.jar
+  find "${PLUGINS_DIR}" -maxdepth 1 -type l -name '*.jar' -delete
 
   while IFS= read -r id; do
     [[ -z "$id" ]] && continue
